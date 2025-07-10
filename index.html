@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles-2.css" />
+    <script defer src="./index.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="div-logo">
+        <img
+          src="https://www.weather.gov/bundles/templating/images/header/header.png"
+        />
+      </div>
+      <div class="div-pages">
+        <div class="div-page-selected"><h3>Home</h3></div>
+        <div class="div-page"><h3>Forecast</h3></div>
+        <div class="div-page"><h3>Past Weather</h3></div>
+        <div class="div-page"><h3>Safety</h3></div>
+        <div class="div-page"><h3>Information</h3></div>
+        <div class="div-page"><h3>Education</h3></div>
+        <div class="div-page"><h3>News</h3></div>
+        <div class="div-page"><h3>Search</h3></div>
+        <div class="div-page"><h3>About</h3></div>
+      </div>
+
+      <div class="div-mobile-nav">
+        <div class="div-logo-mobile">
+          <img
+            src="https://www.weather.gov/bundles/templating/images/header/header.png"
+          />
+        </div>
+        <button class="div-menu" id="btnHamburger">
+          <div class="div-menu-inside"></div>
+          <div class="div-menu-inside"></div>
+          <div class="div-menu-inside"></div>
+        </button>
+      </div>
+
+      <div class="div-menu-drop-down hidden" id="dropDown">
+        <div class="div-menu-drop-down-inside">
+          <h3>Home</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Forecast</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Past Weather</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Safety</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Information</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Education</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>News</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>Search</h3>
+        </div>
+        <div class="div-menu-drop-down-inside">
+          <h3>About</h3>
+        </div>
+      </div>
+
+      <div class="div-alert">
+        <h5>
+          Isolated to scattered severe thunderstorms may produce large hail,
+          severe wind gusts, and heavy rain and isolated flash flooding across
+          porti...
+        </h5>
+        <h5 class="h5-red">Read More</h5>
+      </div>
+      <div class="div-search">
+        <div class="div-search-bar">
+          <h5>Search by your city, state or pin code</h5>
+        </div>
+      </div>
+    </nav>
+
+    <div class="div-map">
+      <div class="div-map-filters">
+        <div class="div-map-filter-inside"><h4>Active Alerts</h4></div>
+        <div class="div-map-filter-inside"><h4>Forecast Maps</h4></div>
+        <div class="div-map-filter-inside"><h4>Radar</h4></div>
+        <div class="div-map-filter-inside-selected">
+          <h4>River, Lakes,Rainfall</h4>
+        </div>
+        <div class="div-map-filter-inside"><h4>Air Quality</h4></div>
+        <div class="div-map-filter-inside"><h4>Satellite</h4></div>
+      </div>
+
+      <div class="div-map-filters-mobile">
+        <button class="btn-filter-arrow left" onclick="scrollFilterLeft()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="18"
+            viewBox="0 0 10 18"
+            fill="none"
+          >
+            <path
+              d="M9 1L1 9L9 17"
+              stroke="#F5FBFF"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div class="div-filters-scrollable">
+          <div class="div-map-filter-inside" onclick="toggleFilterClass(this)">
+            <h4>Active Alerts</h4>
+          </div>
+          <div class="div-map-filter-inside" onclick="toggleFilterClass(this)">
+            <h4>Forecast Maps</h4>
+          </div>
+          <div class="div-map-filter-inside" onclick="toggleFilterClass(this)">
+            <h4>Radar</h4>
+          </div>
+          <div
+            class="div-map-filter-inside-selected"
+            onclick="toggleFilterClass(this)"
+          >
+            <h4>River, Lakes, Rainfall</h4>
+          </div>
+          <div class="div-map-filter-inside" onclick="toggleFilterClass(this)">
+            <h4>Air Quality</h4>
+          </div>
+          <div class="div-map-filter-inside" onclick="toggleFilterClass(this)">
+            <h4>Satellite</h4>
+          </div>
+        </div>
+
+        <button class="btn-filter-arrow right" onclick="scrollFilterRight()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="18"
+            viewBox="0 0 10 18"
+            fill="none"
+          >
+            <path
+              d="M1 1L9 9L1 17"
+              stroke="#F5FBFF"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="div-map-inside">
+        <div class="div-map-index">
+          <div class="div-map-index-title">
+            <h3>Map Index</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.5em"
+              height="1.2em"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                d="M15.241 11.1304C15.241 11.3749 15.1439 11.6095 14.971 11.7824C14.798 11.9553 14.5635 12.0524 14.319 12.0525H11.5528V14.8186C11.5528 15.0632 11.4556 15.2977 11.2827 15.4706C11.1098 15.6436 10.8752 15.7407 10.6307 15.7407C10.3862 15.7407 10.1516 15.6436 9.9787 15.4706C9.80578 15.2977 9.70863 15.0632 9.70863 14.8186V12.0525H6.94243C6.69789 12.0525 6.46336 11.9553 6.29044 11.7824C6.11751 11.6095 6.02037 11.3749 6.02037 11.1304C6.02037 10.8858 6.11751 10.6513 6.29044 10.4784C6.46336 10.3055 6.69789 10.2083 6.94243 10.2083H9.70863V7.44212C9.70863 7.19757 9.80578 6.96304 9.9787 6.79012C10.1516 6.6172 10.3862 6.52006 10.6307 6.52006C10.8752 6.52006 11.1098 6.6172 11.2827 6.79012C11.4556 6.96304 11.5528 7.19757 11.5528 7.44212V10.2083H14.319C14.5635 10.2083 14.798 10.3055 14.971 10.4784C15.1439 10.6513 15.241 10.8858 15.241 11.1304ZM23.73 24.2299C23.557 24.4028 23.3225 24.5 23.0779 24.5C22.8333 24.5 22.5988 24.4028 22.4259 24.2299L17.4441 19.2481C15.3487 21.0073 12.6552 21.8896 9.92512 21.7112C7.19507 21.5327 4.63929 20.3073 2.79075 18.2904C0.942207 16.2735 -0.0563819 13.6208 0.00322474 10.8856C0.0628314 8.15034 1.17603 5.54371 3.11068 3.60925C5.04533 1.67479 7.65207 0.561841 10.3873 0.5025C13.1225 0.44316 15.7751 1.44201 17.7918 3.29074C19.8085 5.13948 21.0337 7.69538 21.2119 10.4254C21.3901 13.1555 20.5075 15.849 18.7482 17.9442L23.73 22.9259C23.9029 23.0989 24 23.3334 24 23.5779C24 23.8225 23.9029 24.057 23.73 24.2299ZM10.6307 19.8896C12.3632 19.8896 14.0568 19.3758 15.4973 18.4133C16.9378 17.4508 18.0605 16.0827 18.7235 14.4821C19.3865 12.8815 19.56 11.1202 19.222 9.42102C18.884 7.72182 18.0497 6.161 16.8247 4.93594C15.5996 3.71089 14.0388 2.87662 12.3396 2.53862C10.6404 2.20063 8.87915 2.3741 7.27853 3.0371C5.67792 3.70009 4.30986 4.82283 3.34734 6.26335C2.38482 7.70386 1.87107 9.39744 1.87107 11.1299C1.8737 13.4523 2.79743 15.6788 4.43961 17.321C6.08179 18.9632 8.30831 19.8869 10.6307 19.8896Z"
+                fill="#F5FBFF"
+              />
+            </svg>
+          </div>
+          <div class="div-map-index-inside">
+            <div class="div-index-square"></div>
+            <h4>Flash Flood Warning</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #75d8e5"
+            ></div>
+            <h4>Heavy Freezing Spray</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #b0ff7c"
+            ></div>
+            <h4>Flood Warning</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #e89395"
+            ></div>
+            <h4>Severe Thunderstorm Watch</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #9f53b7"
+            ></div>
+            <h4>Freeze Warning</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #7cfff8"
+            ></div>
+            <h4>Flood Advisory</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #edb3ff"
+            ></div>
+            <h4>Small Craft Advisory</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #edb3ff"
+            ></div>
+            <h4>Brisk Wind Advisory</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #c1b19a"
+            ></div>
+            <h4>Wind Advisory</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #7d93d8"
+            ></div>
+            <h4>Frost Advisory</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #62ddd6"
+            ></div>
+            <h4>Rip Current Statement</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #5cb45d"
+            ></div>
+            <h4>Flood Watch</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #f7e7d1"
+            ></div>
+            <h4>Fire Weather Watch</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #dbb989"
+            ></div>
+            <h4>Special Weather Statement</h4>
+          </div>
+          <div class="div-map-index-inside">
+            <div
+              class="div-index-square"
+              style="background-color: #9d9a96"
+            ></div>
+            <h4>Air Quality Alert</h4>
+          </div>
+        </div>
+        <div class="div-map-img">
+          <img src="https://www.weather.gov/wwamap/png/US.png" />
+        </div>
+
+        <div class="div-map-index-mobile">
+          <div class="div-map-index-title">
+            <div class="div-map-index-title-inside">
+              <h3>Map Index</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.5em"
+                height="1.2em"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M15.241 11.1304C15.241 11.3749 15.1439 11.6095 14.971 11.7824C14.798 11.9553 14.5635 12.0524 14.319 12.0525H11.5528V14.8186C11.5528 15.0632 11.4556 15.2977 11.2827 15.4706C11.1098 15.6436 10.8752 15.7407 10.6307 15.7407C10.3862 15.7407 10.1516 15.6436 9.9787 15.4706C9.80578 15.2977 9.70863 15.0632 9.70863 14.8186V12.0525H6.94243C6.69789 12.0525 6.46336 11.9553 6.29044 11.7824C6.11751 11.6095 6.02037 11.3749 6.02037 11.1304C6.02037 10.8858 6.11751 10.6513 6.29044 10.4784C6.46336 10.3055 6.69789 10.2083 6.94243 10.2083H9.70863V7.44212C9.70863 7.19757 9.80578 6.96304 9.9787 6.79012C10.1516 6.6172 10.3862 6.52006 10.6307 6.52006C10.8752 6.52006 11.1098 6.6172 11.2827 6.79012C11.4556 6.96304 11.5528 7.19757 11.5528 7.44212V10.2083H14.319C14.5635 10.2083 14.798 10.3055 14.971 10.4784C15.1439 10.6513 15.241 10.8858 15.241 11.1304ZM23.73 24.2299C23.557 24.4028 23.3225 24.5 23.0779 24.5C22.8333 24.5 22.5988 24.4028 22.4259 24.2299L17.4441 19.2481C15.3487 21.0073 12.6552 21.8896 9.92512 21.7112C7.19507 21.5327 4.63929 20.3073 2.79075 18.2904C0.942207 16.2735 -0.0563819 13.6208 0.00322474 10.8856C0.0628314 8.15034 1.17603 5.54371 3.11068 3.60925C5.04533 1.67479 7.65207 0.561841 10.3873 0.5025C13.1225 0.44316 15.7751 1.44201 17.7918 3.29074C19.8085 5.13948 21.0337 7.69538 21.2119 10.4254C21.3901 13.1555 20.5075 15.849 18.7482 17.9442L23.73 22.9259C23.9029 23.0989 24 23.3334 24 23.5779C24 23.8225 23.9029 24.057 23.73 24.2299ZM10.6307 19.8896C12.3632 19.8896 14.0568 19.3758 15.4973 18.4133C16.9378 17.4508 18.0605 16.0827 18.7235 14.4821C19.3865 12.8815 19.56 11.1202 19.222 9.42102C18.884 7.72182 18.0497 6.161 16.8247 4.93594C15.5996 3.71089 14.0388 2.87662 12.3396 2.53862C10.6404 2.20063 8.87915 2.3741 7.27853 3.0371C5.67792 3.70009 4.30986 4.82283 3.34734 6.26335C2.38482 7.70386 1.87107 9.39744 1.87107 11.1299C1.8737 13.4523 2.79743 15.6788 4.43961 17.321C6.08179 18.9632 8.30831 19.8869 10.6307 19.8896Z"
+                  fill="#F5FBFF"
+                />
+              </svg>
+            </div>
+
+            <div class="div-map-arrows">
+              <button class="btn-map-arrow left" onclick="scrollIndexLeft()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="18"
+                  viewBox="0 0 10 18"
+                  fill="none"
+                >
+                  <path
+                    d="M9 1L1 9L9 17"
+                    stroke="#F5FBFF"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button class="btn-map-arrow right" onclick="scrollIndexRight()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="18"
+                  viewBox="0 0 10 18"
+                  fill="none"
+                >
+                  <path
+                    d="M1 1L9 9L1 17"
+                    stroke="#F5FBFF"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="div-frames-track">
+            <div class="div-frame one">
+              <div class="div-map-index-inside">
+                <div class="div-index-square"></div>
+                <h4>Flash Flood Warning</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #75d8e5"
+                ></div>
+                <h4>Heavy Freezing Spray</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #b0ff7c"
+                ></div>
+                <h4>Flood Warning</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #e89395"
+                ></div>
+                <h4>Severe Thunderstorm Watch</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #9f53b7"
+                ></div>
+                <h4>Freeze Warning</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #7cfff8"
+                ></div>
+                <h4>Flood Advisory</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #edb3ff"
+                ></div>
+                <h4>Small Craft Advisory</h4>
+              </div>
+            </div>
+
+            <div class="div-frame two">
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #edb3ff"
+                ></div>
+                <h4>Brisk Wind Advisory</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #c1b19a"
+                ></div>
+                <h4>Wind Advisory</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #7d93d8"
+                ></div>
+                <h4>Frost Advisory</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #62ddd6"
+                ></div>
+                <h4>Rip Current Statement</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #5cb45d"
+                ></div>
+                <h4>Flood Watch</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #f7e7d1"
+                ></div>
+                <h4>Fire Weather Watch</h4>
+              </div>
+              <div class="div-map-index-inside">
+                <div
+                  class="div-index-square"
+                  style="background-color: #dbb989"
+                ></div>
+                <h4>Special Weather Statement</h4>
+              </div>
+            </div>
+          </div>
+          <div class="div-anotation">
+            <h4 id="indexAnnotation">1 of 2</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="div-footer-pages">
+        <div class="div-footer-pages-inside">
+          <div class="div-footer-pages-section">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="46"
+              viewBox="0 0 40 46"
+              fill="none"
+            >
+              <path
+                d="M39.1513 32.7198C37.8435 30.4689 36.2846 26.2214 36.2846 18.7692V17.268C36.2846 8.36316 29.146 1.06549 20.3713 1.00042C20.3304 1.00021 20.2897 1 20.2488 1C15.9907 1.00581 11.9093 2.70287 8.9024 5.71786C5.89551 8.73285 4.20944 12.8188 4.21507 17.0769V18.7692C4.21507 26.2212 2.6554 30.4685 1.34691 32.7194C1.12166 33.1047 1.00201 33.5427 1.00003 33.989C0.99804 34.4353 1.11379 34.8743 1.3356 35.2616C1.55741 35.649 1.87744 35.971 2.26341 36.1951C2.64938 36.4193 3.08763 36.5377 3.53398 36.5385H12.6336V37.3846C12.6336 39.4043 13.436 41.3413 14.8641 42.7695C16.2923 44.1977 18.2293 45 20.249 45C22.2687 45 24.2058 44.1977 25.6339 42.7695C27.0621 41.3413 27.8644 39.4043 27.8644 37.3846V36.5385H36.9641C37.4104 36.5377 37.8486 36.4193 38.2345 36.1951C38.6204 35.971 38.9404 35.6491 39.1623 35.2618C39.3841 34.8745 39.4999 34.4356 39.498 33.9894C39.496 33.5431 39.3765 33.1052 39.1513 32.7198ZM26.1721 37.3846C26.1721 38.9555 25.5481 40.4621 24.4373 41.5729C23.3265 42.6837 21.8199 43.3077 20.249 43.3077C18.6781 43.3077 17.1716 42.6837 16.0608 41.5729C14.95 40.4621 14.3259 38.9555 14.3259 37.3846V36.5385H26.1721V37.3846ZM37.691 34.4256C37.6187 34.5544 37.513 34.6614 37.3851 34.7354C37.2572 34.8094 37.1118 34.8476 36.9641 34.8462H3.53398C3.3862 34.8477 3.24074 34.8094 3.11284 34.7354C2.98494 34.6613 2.87931 34.5543 2.80702 34.4254C2.73071 34.2956 2.69071 34.1478 2.69122 33.9972C2.69173 33.8467 2.73273 33.6991 2.80991 33.5699C4.22292 31.1391 5.90738 26.5982 5.90738 18.7692V17.0769C5.90173 13.2676 7.40956 9.61199 10.0992 6.91436C12.7888 4.21672 16.4399 2.69801 20.2492 2.69232C20.2856 2.69232 20.3226 2.69254 20.3589 2.69275C28.2071 2.751 34.5923 9.28948 34.5923 17.268V18.7693C34.5923 26.5982 36.2757 31.1393 37.6879 33.5701C37.7651 33.6993 37.8062 33.8469 37.8067 33.9974C37.8073 34.1479 37.7673 34.2958 37.691 34.4256Z"
+                fill="#F5FBFF"
+                stroke="#F5FBFF"
+              />
+            </svg>
+            <h3>Active Alerts</h3>
+          </div>
+          <div class="div-footer-page-list">
+            <div class="div-footer-page-list-inside">
+              <h4>Warning by State</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Excessive Rainfall</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Winter Weather Forecasts</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>River Flooding</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Latest Warnings</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Thunderstorm/Tornado</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Outlook</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Hurricanes</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Fire weather outlooks</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>UV Alerts</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Drought</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="div-footer-pages-inside">
+          <div class="div-footer-pages-section">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="46"
+              viewBox="0 0 60 46"
+              fill="none"
+            >
+              <path
+                d="M48.8571 14.619C48.8571 14.8969 48.7467 15.1633 48.5503 15.3598C48.3538 15.5563 48.0874 15.6667 47.8095 15.6667H20.5714C20.2936 15.6667 20.0271 15.5563 19.8306 15.3598C19.6342 15.1634 19.5238 14.8969 19.5238 14.619C19.5238 14.3412 19.6342 14.0747 19.8306 13.8783C20.0271 13.6818 20.2936 13.5714 20.5714 13.5714H47.8095C48.0874 13.5714 48.3538 13.6818 48.5503 13.8783C48.7467 14.0747 48.8571 14.3412 48.8571 14.619ZM47.8095 21.9524H20.5714C20.2936 21.9524 20.0271 22.0628 19.8306 22.2592C19.6342 22.4557 19.5238 22.7222 19.5238 23C19.5238 23.2778 19.6342 23.5443 19.8306 23.7408C20.0271 23.9372 20.2936 24.0476 20.5714 24.0476H47.8095C48.0874 24.0476 48.3538 23.9372 48.5503 23.7408C48.7468 23.5443 48.8571 23.2778 48.8571 23C48.8571 22.7222 48.7468 22.4557 48.5503 22.2592C48.3538 22.0628 48.0874 21.9524 47.8095 21.9524ZM47.8095 30.3333H20.5714C20.2936 30.3333 20.0271 30.4437 19.8306 30.6402C19.6342 30.8366 19.5238 31.1031 19.5238 31.381C19.5238 31.6588 19.6342 31.9253 19.8306 32.1217C20.0271 32.3182 20.2936 32.4286 20.5714 32.4286H47.8095C48.0874 32.4286 48.3538 32.3182 48.5503 32.1217C48.7468 31.9253 48.8571 31.6588 48.8571 31.381C48.8571 31.1031 48.7468 30.8366 48.5503 30.6402C48.3538 30.4437 48.0874 30.3333 47.8095 30.3333ZM59.3333 4.14286V39.7619C59.3318 41.1507 58.7794 42.4821 57.7974 43.4641C56.8154 44.4461 55.484 44.9985 54.0952 45H5.90475C4.51967 44.9984 3.19146 44.449 2.21008 43.4716C1.22869 42.4942 0.673843 41.1682 0.666656 39.7831V10.4286C0.666656 10.1507 0.77703 9.88426 0.973497 9.68779C1.16996 9.49133 1.43643 9.38095 1.71428 9.38095C1.99212 9.38095 2.25859 9.49133 2.45505 9.68779C2.65152 9.88426 2.76189 10.1507 2.76189 10.4286V39.7619C2.76189 40.5954 3.09302 41.3948 3.68242 41.9842C4.27182 42.5736 5.07121 42.9048 5.90475 42.9048C6.73829 42.9048 7.53769 42.5736 8.12709 41.9842C8.71649 41.3948 9.04761 40.5954 9.04761 39.7619V4.14286C9.04852 3.3096 9.37993 2.51073 9.96914 1.92153C10.5583 1.33232 11.3572 1.00091 12.1905 1H56.1905C57.0237 1.00091 57.8226 1.33232 58.4118 1.92153C59.001 2.51073 59.3324 3.3096 59.3333 4.14286ZM57.2381 4.14286C57.2378 3.8651 57.1273 3.59879 56.9309 3.40238C56.7345 3.20598 56.4682 3.09552 56.1905 3.09524H12.1905C11.9127 3.09552 11.6464 3.20598 11.45 3.40238C11.2536 3.59879 11.1431 3.8651 11.1428 4.14286V39.7619C11.1441 40.8959 10.7754 41.9993 10.0927 42.9048H54.0952C54.9285 42.9039 55.7274 42.5724 56.3166 41.9832C56.9058 41.394 57.2372 40.5952 57.2381 39.7619V4.14286Z"
+                fill="#F5FBFF"
+                stroke="#F5FBFF"
+              />
+            </svg>
+            <h3>News</h3>
+          </div>
+          <div class="div-footer-page-list">
+            <div class="div-footer-page-list-inside">
+              <h4>Newsroom</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Events</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Pubs / Brochures / Booklets</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="div-footer-pages-inside">
+          <div class="div-footer-pages-section">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="46"
+              height="46"
+              viewBox="0 0 46 46"
+              fill="none"
+            >
+              <path
+                d="M23.3333 1C18.9821 1 14.7287 2.29028 11.1108 4.70767C7.4929 7.12506 4.6731 10.561 3.00797 14.581C1.34284 18.6009 0.907172 23.0244 1.75605 27.292C2.60492 31.5596 4.70022 35.4796 7.77697 38.5563C10.8537 41.6331 14.7738 43.7284 19.0413 44.5773C23.3089 45.4261 27.7324 44.9905 31.7524 43.3253C35.7723 41.6602 39.2083 38.8404 41.6256 35.2225C44.043 31.6047 45.3333 27.3512 45.3333 23C45.3268 17.1672 43.0068 11.5753 38.8824 7.4509C34.758 3.32652 29.1661 1.00656 23.3333 1ZM23.3333 43.24C19.3302 43.24 15.417 42.0529 12.0886 39.8289C8.76013 37.6049 6.16592 34.4439 4.634 30.7455C3.10208 27.0471 2.70126 22.9775 3.48223 19.0514C4.26319 15.1252 6.19087 11.5188 9.02148 8.68816C11.8521 5.85754 15.4585 3.92987 19.3847 3.14891C23.3109 2.36794 27.3805 2.76876 31.0788 4.30068C34.7772 5.83259 37.9383 8.42681 40.1623 11.7553C42.3863 15.0837 43.5733 18.9969 43.5733 23C43.5672 28.3661 41.4328 33.5107 37.6384 37.3051C33.844 41.0995 28.6994 43.2339 23.3333 43.24ZM25.9733 33.56C25.9733 33.7934 25.8806 34.0172 25.7156 34.1822C25.5505 34.3473 25.3267 34.44 25.0933 34.44H23.3333C23.0999 34.44 22.8761 34.3473 22.7111 34.1822C22.546 34.0172 22.4533 33.7934 22.4533 33.56V22.12H21.5733C21.3399 22.12 21.1161 22.0273 20.9511 21.8622C20.786 21.6972 20.6933 21.4734 20.6933 21.24C20.6933 21.0066 20.786 20.7828 20.9511 20.6177C21.1161 20.4527 21.3399 20.36 21.5733 20.36H23.3333C23.5667 20.36 23.7905 20.4527 23.9556 20.6178C24.1206 20.7828 24.2133 21.0066 24.2133 21.24V32.68H25.0933C25.3267 32.68 25.5505 32.7727 25.7156 32.9378C25.8806 33.1028 25.9733 33.3266 25.9733 33.56ZM22.0889 14.5646C21.8843 14.3599 21.7332 14.1079 21.6492 13.831C21.5652 13.554 21.5508 13.2606 21.6073 12.9767C21.6637 12.6928 21.7893 12.4272 21.9729 12.2035C22.1566 11.9798 22.3925 11.8048 22.6599 11.694C22.9273 11.5832 23.2179 11.5401 23.506 11.5685C23.794 11.5968 24.0706 11.6958 24.3113 11.8566C24.552 12.0174 24.7492 12.2351 24.8857 12.4903C25.0221 12.7456 25.0935 13.0306 25.0935 13.32V13.3204C25.0934 13.6685 24.9901 14.0087 24.7967 14.2981C24.6033 14.5874 24.3284 14.8129 24.0068 14.9461C23.6852 15.0793 23.3314 15.1141 22.99 15.0462C22.6487 14.9783 22.3351 14.8107 22.0889 14.5646Z"
+                fill="#F5FBFF"
+                stroke="#F5FBFF"
+              />
+            </svg>
+            <h3>Information Center</h3>
+          </div>
+          <div class="div-footer-page-list">
+            <div class="div-footer-page-list-inside">
+              <h4>Space Weather</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Marine</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Storm Spotters</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Tsunami Warning System</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>National Water Center</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>GIS</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Cooperative Observers</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>International Weather</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Freedom of Information Act</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="div-footer-pages-inside">
+          <div class="div-footer-pages-section">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="34"
+              height="46"
+              viewBox="0 0 34 46"
+              fill="none"
+            >
+              <path
+                d="M10.8618 45C10.7496 44.9999 10.6388 44.975 10.5374 44.927C10.4359 44.8789 10.3464 44.809 10.2753 44.7222C10.2042 44.6354 10.1532 44.5339 10.126 44.425C10.0989 44.3161 10.0962 44.2026 10.1182 44.0926L13.0261 29.5527L1.49228 25.2275C1.3755 25.1837 1.27131 25.1118 1.18895 25.0182C1.10659 24.9245 1.04858 24.812 1.02008 24.6906C0.991574 24.5691 0.993445 24.4426 1.02553 24.322C1.05761 24.2015 1.11891 24.0908 1.204 23.9996L22.4454 1.24094C22.558 1.12029 22.7069 1.03967 22.8695 1.0113C23.0321 0.982921 23.1995 1.00835 23.3464 1.08372C23.4932 1.15908 23.6115 1.28028 23.6832 1.42893C23.755 1.57758 23.7763 1.74557 23.7439 1.90742L20.8359 16.4473L32.3698 20.7725C32.4866 20.8163 32.5907 20.8882 32.6731 20.9818C32.7555 21.0755 32.8135 21.188 32.842 21.3094C32.8705 21.4308 32.8686 21.5574 32.8365 21.6779C32.8045 21.7985 32.7432 21.9092 32.6581 22.0004L11.4167 44.759C11.3457 44.8351 11.2598 44.8958 11.1643 44.9372C11.0688 44.9787 10.9659 45.0001 10.8618 45ZM3.0874 24.2053L14.1629 28.3587C14.3315 28.4219 14.4722 28.543 14.5596 28.7004C14.6471 28.8578 14.6758 29.0412 14.6405 29.2178L12.1297 41.7713L30.7747 21.7946L19.6992 17.6413C19.5306 17.5781 19.3899 17.457 19.3024 17.2996C19.2149 17.1422 19.1863 16.9588 19.2216 16.7822L21.7323 4.22866L3.0874 24.2053Z"
+                fill="#F5FBFF"
+                stroke="#F5FBFF"
+              />
+            </svg>
+            <h3>About NWS</h3>
+          </div>
+          <div class="div-footer-page-list">
+            <div class="div-footer-page-list-inside">
+              <h4>Organisation</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>National Centres</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Products and Services</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>About Us</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Contact Us</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Careers</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>NWS Transformation</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Privacy Policy</h4>
+            </div>
+            <div class="div-footer-page-list-inside">
+              <h4>Disclaimer</h4>
+            </div>
+
+            <div class="div-social-media">
+              <div class="div-social-media-inside">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                >
+                  <mask
+                    id="mask0_38_222"
+                    style="mask-type: luminance"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="24"
+                    height="25"
+                  >
+                    <path d="M0 0.312256H24V24.3123H0V0.312256Z" fill="white" />
+                  </mask>
+                  <g mask="url(#mask0_38_222)">
+                    <path
+                      d="M18.9 1.43677H22.5806L14.5406 10.6493L24 23.1876H16.5943L10.7897 15.5848L4.15543 23.1876H0.471429L9.07029 13.3305L0 1.43848H7.59429L12.8331 8.38648L18.9 1.43677ZM17.6057 20.9796H19.6457L6.48 3.52991H4.29257L17.6057 20.9796Z"
+                      fill="#F5FBFF"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <div class="div-social-media-inside">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="25"
+                  viewBox="0 0 22 25"
+                  fill="none"
+                >
+                  <path
+                    d="M20.79 0.312256H1.21C0.889088 0.312256 0.58132 0.451327 0.354401 0.698875C0.127482 0.946423 0 1.28217 0 1.63226V22.9923C0 23.3423 0.127482 23.6781 0.354401 23.9256C0.58132 24.1732 0.889088 24.3123 1.21 24.3123H11.748V15.0123H8.888V11.4123H11.748V8.71226C11.6888 8.07836 11.7574 7.43801 11.949 6.8361C12.1406 6.23419 12.4506 5.68531 12.8573 5.22795C13.264 4.77059 13.7575 4.41583 14.3031 4.18854C14.8488 3.96126 15.4334 3.86696 16.016 3.91226C16.8722 3.90581 17.728 3.95389 18.579 4.05626V7.29626H16.83C15.444 7.29626 15.18 8.01626 15.18 9.06026V11.3763H18.48L18.051 14.9763H15.18V24.3123H20.79C20.9489 24.3123 21.1062 24.2781 21.253 24.2118C21.3999 24.1454 21.5332 24.0482 21.6456 23.9256C21.758 23.8031 21.8471 23.6575 21.9079 23.4974C21.9687 23.3372 22 23.1656 22 22.9923V1.63226C22 1.45891 21.9687 1.28726 21.9079 1.12711C21.8471 0.966964 21.758 0.821448 21.6456 0.698875C21.5332 0.576302 21.3999 0.479071 21.253 0.412735C21.1062 0.346399 20.9489 0.312256 20.79 0.312256Z"
+                    fill="#F5FBFF"
+                  />
+                </svg>
+              </div>
+              <div class="div-social-media-inside">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="21"
+                  viewBox="0 0 30 21"
+                  fill="none"
+                >
+                  <path
+                    d="M29.346 7.26835C29.4119 5.35989 28.9945 3.46571 28.1326 1.76169C27.5478 1.06248 26.7363 0.590634 25.8393 0.428353C22.1294 0.0908017 18.404 -0.0471749 14.6793 0.0150201C10.9682 -0.0476587 7.25633 0.0858612 3.5593 0.41502C2.82839 0.547976 2.15199 0.890809 1.61263 1.40169C0.412633 2.50835 0.2793 4.40169 0.145966 6.00169C-0.0486555 8.8784 -0.0486555 11.765 0.145966 14.6417C0.185038 15.5422 0.319115 16.436 0.545966 17.3084C0.706733 17.9818 1.032 18.6048 1.49263 19.1217C2.03566 19.6596 2.72781 20.022 3.4793 20.1617C6.35378 20.5173 9.25024 20.6644 12.146 20.6017C16.8126 20.6684 20.906 20.6017 25.746 20.2284C26.5154 20.0956 27.2266 19.733 27.786 19.1884C28.1588 18.8146 28.4376 18.3576 28.5993 17.855C29.0757 16.3917 29.3099 14.8605 29.2926 13.3217C29.346 12.575 29.346 8.06835 29.346 7.26835ZM11.666 14.1217V5.86835L19.5593 10.015C17.346 11.2417 14.426 12.6284 11.666 14.1217Z"
+                    fill="#F5FBFF"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="div-footer-bottom">
+        <h5>
+          US Dept of Commerce | National Ocean& Atmospheric Administration |
+          National Weather Service<br />
+          Address: 1325 East West Highway, Silver Spring, MD 20910
+        </h5>
+      </div>
+    </footer>
+  </body>
+</html>

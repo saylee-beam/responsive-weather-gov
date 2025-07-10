@@ -1,0 +1,284 @@
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .div-logo {
+    padding: 0.25em 2em;
+  }
+
+  .div-pages {
+    padding: 0em 2em;
+    justify-content: flex-start;
+  }
+
+  .div-alert {
+    padding: 0.5em 2em;
+  }
+
+  .div-map {
+    padding: 0em 2em;
+  }
+
+  .div-map-index-title {
+    padding: 1em;
+  }
+
+  .div-footer-pages {
+    padding: 2em 2em;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .div-logo {
+    padding: 4px 16px;
+  }
+
+  .div-logo img {
+    width: 98%;
+  }
+
+  .div-pages {
+    display: none;
+  }
+
+  .div-mobile-nav {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    position: relative;
+  }
+
+  .div-logo {
+    display: none;
+  }
+
+  .div-logo-mobile img {
+    width: 100%;
+    padding: 0em 16px;
+    display: flex;
+  }
+
+  .div-menu {
+    display: flex;
+    height: 4em;
+    width: 4em;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .div-menu-inside {
+    width: 24px;
+    height: 2px;
+    background-color: #f5fbff;
+  }
+
+  .div-menu-drop-down {
+    display: block;
+    width: 100%;
+    background-color: #62ace0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  .div-menu-drop-down-inside {
+    padding: 0.8em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .div-menu-drop-down-inside:hover {
+    background-color: #005fa3;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .div-alert {
+    padding: 0.5em 1em;
+  }
+
+  .div-search {
+    margin: 1em;
+  }
+
+  .div-map {
+    padding: 0em;
+    width: 100%;
+  }
+
+  .div-map-filters-mobile {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    background-color: #62ace0;
+  }
+
+  .div-filters-scrollable {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1;
+    padding-left: 2em;
+  }
+
+  .scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btn-filter-arrow {
+    display: flex;
+    height: 2.5em;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    background-color: #62ace0;
+    cursor: pointer;
+  }
+
+  .btn-filter-arrow.left {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+  }
+
+  .div-map-filter-inside {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .div-map-filter-inside-selected {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .div-map-filters {
+    display: none;
+  }
+
+  .div-map-index {
+    display: none;
+  }
+
+  .div-map-inside {
+    flex-direction: column;
+  }
+
+  .div-map-img img {
+    width: 100%;
+    height: 24em;
+    object-fit: cover;
+  }
+
+  .div-map-index-mobile {
+    display: flex;
+    flex-direction: column;    
+    overflow: hidden;
+  }
+
+  .div-map-index-title-inside{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+
+  .div-frames-track {
+    display: flex;
+   box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .div-frame {
+    flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+    box-sizing: border-box;
+  }
+
+  .div-map-index-inside {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .div-map-arrows {
+    display: flex;
+    gap: 0.5em;
+  }
+  .btn-map-arrow {
+    aspect-ratio: 1/1;
+    padding: 0.5em;
+    border: 0;
+    background-color: #3191d6;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .btn-map-arrow:hover {
+    background-color: #005fa3;
+  }
+
+.div-anotation{
+  display: flex;
+  padding: 1em;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+  .div-footer-pages {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .div-footer-pages {
+    padding: 1em 1em;
+  }
+
+  .div-footer-pages-inside {
+    gap: 1em;
+  }
+
+  .div-footer-page-list {
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .div-social-media {
+    width: 100%;
+    padding: 0;
+    align-items: left;
+  }
+
+  .div-footer-bottom {
+    padding: 1em;
+  }
+
+  .div-footer-pages-section svg {
+    width: 2.5em;
+  }
+}
